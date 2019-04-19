@@ -7,6 +7,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 import es.dmoral.toasty.Toasty;
 import ir.hamsaa.persiandatepicker.util.PersianCalendar;
 
@@ -82,5 +84,8 @@ public class PublicMethods {
         PersianCalendar pc = new PersianCalendar();
         time = pc.getPersianShortDateTime() + "";
         return time;
+    }
+    public static String splitDigits(int number) {
+        return new DecimalFormat("###,###,###,###").format(number);
     }
 }
