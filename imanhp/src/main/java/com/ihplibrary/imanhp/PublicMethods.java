@@ -85,7 +85,12 @@ public class PublicMethods {
         time = pc.getPersianShortDateTime() + "";
         return time;
     }
+
     public static String splitDigits(int number) {
         return new DecimalFormat("###,###,###,###").format(number);
+    }
+
+    public static String splitDigitsLong(Long number) {
+        return new DecimalFormat("###,###,###,###,###").format(number);
     }
 }
