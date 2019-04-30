@@ -7,6 +7,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
+import org.joda.time.Chronology;
+import org.joda.time.LocalDate;
+import org.joda.time.chrono.ISOChronology;
+import org.joda.time.chrono.IslamicChronology;
+
 import java.text.DecimalFormat;
 
 import es.dmoral.toasty.Toasty;
@@ -93,4 +98,20 @@ public class PublicMethods {
     public static String splitDigitsLong(Long number) {
         return new DecimalFormat("###,###,###,###,###").format(number);
     }
+
+    public static String convert_Miladi_To_Hijri(int year, int month, int day) {
+
+        Chronology iso = ISOChronology.getInstanceUTC();
+        Chronology hijri = IslamicChronology.getInstanceUTC();
+
+        LocalDate todayIso = new LocalDate(year, month, day, iso);
+        LocalDate todayHijri = new LocalDate(todayIso.toDateTimeAtStartOfDay(),
+                hijri);
+        // 1434-05-19
+        String hijriDate=String.valueOf(todayHijri);
+        String[] str=hijriDate.split("-");
+        int days=Integer.parseInt(str[2])+1;
+        return str[0]+"-"+str[1]+"-"+days;}
 }
+
+
