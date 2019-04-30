@@ -111,7 +111,7 @@ public class PublicMethods {
         String hijriDate=String.valueOf(todayHijri);
         String[] str=hijriDate.split("-");
         int days=Integer.parseInt(str[2])+1;
-        return str[0]+"-"+str[1]+"-"+days;}
+        return str[0]+"/"+str[1]+"/"+days;}
 }
 
 
