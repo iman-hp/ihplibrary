@@ -112,6 +112,7 @@ public class PublicMethods {
         String[] str=hijriDate.split("-");
         int days=Integer.parseInt(str[2])+1;
         return str[0]+"/"+str[1]+"/"+days;}
+
 }
 
 
