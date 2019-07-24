@@ -108,16 +108,17 @@ public class PublicMethods {
         LocalDate todayHijri = new LocalDate(todayIso.toDateTimeAtStartOfDay(),
                 hijri);
         // 1434-05-19
-        String hijriDate=String.valueOf(todayHijri);
-        String[] str=hijriDate.split("-");
-        int days=Integer.parseInt(str[2])+1;
-        return str[0]+"/"+str[1]+"/"+days;}
-
+        String hijriDate = String.valueOf(todayHijri);
+        String[] str = hijriDate.split("-");
+        int days = Integer.parseInt(str[2]) + 1;
+        return str[0] + "/" + str[1] + "/" + days;
+    }
 
 
     public static String validateMelliCode(String melliCode) {
-
-        if (melliCode.trim().isEmpty()) {
+        if (melliCode.equals("0000000000")) {
+            return "نامعتبر";
+        } else if (melliCode.trim().isEmpty()) {
 
             return "خالی"; // Melli Code is empty
         } else if (melliCode.length() != 10) {
