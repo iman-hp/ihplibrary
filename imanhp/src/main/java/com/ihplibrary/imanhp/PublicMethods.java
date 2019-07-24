@@ -113,6 +113,42 @@ public class PublicMethods {
         int days=Integer.parseInt(str[2])+1;
         return str[0]+"/"+str[1]+"/"+days;}
 
+
+
+    public String validateMelliCode(String melliCode) {
+
+        if (melliCode.trim().isEmpty()) {
+
+            return "خالی"; // Melli Code is empty
+        } else if (melliCode.length() != 10) {
+
+            return "رقم"; // Melli Code is less or more than 10 digits
+
+        } else {
+            int sum = 0;
+
+            for (int i = 0; i < 9; i++) {
+                sum += Character.getNumericValue(melliCode.charAt(i)) * (10 - i);
+            }
+
+            int lastDigit;
+            int divideRemaining = sum % 11;
+
+            if (divideRemaining < 2) {
+                lastDigit = divideRemaining;
+            } else {
+                lastDigit = 11 - (divideRemaining);
+            }
+
+            if (Character.getNumericValue(melliCode.charAt(9)) == lastDigit) {
+
+                return "درست";
+            } else {
+
+                return "نامعتبر"; // Invalid MelliCode
+            }
+        }
+    }
 }
 
 
