@@ -115,7 +115,7 @@ public class PublicMethods {
 
 
 
-    public String validateMelliCode(String melliCode) {
+    public static String validateMelliCode(String melliCode) {
 
         if (melliCode.trim().isEmpty()) {
 
